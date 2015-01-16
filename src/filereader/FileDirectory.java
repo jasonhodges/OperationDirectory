@@ -5,6 +5,9 @@
  */
 package filereader;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -15,10 +18,15 @@ public class FileDirectory {
     public static String getDirectory(String selection)
     {
         Scanner scanner = new Scanner(System.in);
-        System.out.print("Enter the directory you want to read: ");
+        System.out.print("Enter the directory you want to work in: ");
         String directorySelection = scanner.nextLine();
         
-        System.out.println(directorySelection);
+        System.out.println("******************************");
+        System.out.println("Working Directory ---> " + directorySelection);
+        System.out.println("******************************");
         return directorySelection;
     }
+    
+    
+    
 }

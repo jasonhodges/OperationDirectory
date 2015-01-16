@@ -1,0 +1,100 @@
+//  public static void main(String[] args) throws IOException 
+//    {
+//        // TODO code application logic here
+//        //FileReader fr = new FileReader();
+//        Scanner scanner = new Scanner(System.in);
+//        int ranOnce = 0;
+//        int proceed = 1;
+//        String directory = getDirectory(null);
+//        
+//        
+//        do
+//        {
+//        Path dir = Paths.get(directory);
+//        
+//            try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir))
+//            {
+//                for (Path file: stream) 
+//                {
+//                    System.out.println(file.getFileName());
+//                }
+//            }   catch (IOException | DirectoryIteratorException x) 
+//                {
+//                    // IOException can never be thrown by the iteration.
+//                    // In this snippet, it can only be thrown by newDirectoryStream.
+//                    System.err.println(x);
+//                }
+//        
+//            if(ranOnce > 0)
+//            {
+//                System.out.println("Enter 0 to quit, 1 to continue, 2 to write file: ");
+//                proceed = scanner.nextInt();
+//            }
+//            
+//            if(proceed == 1)
+//            {
+//            String erase = editContents(null);
+//
+//            String replace = newContents(null);
+//
+//            File dir2 = new File(directory);
+//            String[] strs = dir2.list();
+//
+//
+//                for (String string : strs) 
+//                {
+//                    File file = new File(dir+ File.separator+ string);
+//                    if (!file.exists())
+//                    {
+//                        continue;
+//                    }
+//                    String replacedFileName = string.replaceAll(erase, replace);
+//                    
+//                    String[] tempA = replacedFileName.split(".pdf");
+//                    
+//                    System.out.println("replaced: " + replacedFileName);
+//                    System.out.println("tempA: " + Arrays.toString(tempA));
+//                    
+//                    file.renameTo(new File(dir+ File.separator+ replacedFileName));
+//                } 
+//            }ranOnce++;
+//        }while(proceed == 1);
+//        
+//        
+//        
+//        if(proceed == 2)
+//        {
+//            String newFile = yoFile(null);
+//            File fwDir = new File(directory);
+//            String[] fwStrs = fwDir.list();
+//            System.out.println(newFile);
+//            System.out.println(fwDir.getAbsolutePath());
+//            try
+//            {
+//                try ( FileWriter fw = new FileWriter(fwDir + "\\" + newFile)) 
+//                {
+//                    for (String string : fwStrs)
+//                    {
+//                        fw.write(String.format(string));
+//                        fw.write(System.lineSeparator());
+//                    }
+//                    fw.flush();
+//                }
+//            }   catch (IOException ex) 
+//                {
+//                }
+//        }
+//        
+//        
+//        String linkFormatA = "<p>&nbsp;+&nbsp;<a href=\"PDFFiles/";  
+//        String linkFormatB = "\" target=\"_blank\">";
+//        try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir)){
+//            for (Path file: stream) {
+//                System.out.println(file.getFileName());
+//            }
+//        } catch (IOException | DirectoryIteratorException x) {
+//            // IOException can never be thrown by the iteration.
+//            // In this snippet, it can only be thrown by newDirectoryStream.
+//            System.err.println(x);
+//        }
+//}

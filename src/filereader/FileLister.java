@@ -5,7 +5,6 @@
  */
 package filereader;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.DirectoryIteratorException;
 import java.nio.file.DirectoryStream;
@@ -26,11 +25,15 @@ public class FileLister {
         Path dir = Paths.get(sourceDir);
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir))
             {
+                System.out.println("******************************");
+                System.out.println("Current Files");
                 for (Path file: stream) 
                 {
                     fileList.add(file.getFileName());
+                    
                     System.out.println(file.getFileName());
                 }
+                System.out.println("******************************");
             }   catch (IOException | DirectoryIteratorException x) 
                 {
                     // IOException can never be thrown by the iteration.

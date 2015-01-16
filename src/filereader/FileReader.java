@@ -37,25 +37,55 @@ public abstract class FileReader {
         sourceDir = FileDirectory.getDirectory(null);
         sourceFiles = FileLister.getFiles(sourceDir);
         
-        //System.out.println(sourceFiles);
         
-        String remove = FileFormatter.editContents(null);
-        String replace = FileFormatter.newContents(null);
+        String tempRemove = FileFormatter.editContents(null, 1);
+        String tempReplace = FileFormatter.newContents(null, 1);
         
-        ArrayList tempfileEdit = FileFormatter.tempChange(sourceDir,remove, replace);
-        for (Iterator it = tempfileEdit.iterator(); it.hasNext();)
+        List<FileListing> theList = new ArrayList<>();
+        
+        TheFiles files1 = new TheFiles();
+        files1.theFiles = FileFormatter.tempChange(sourceDir, tempRemove, tempReplace);
+        
+        FileListing list1 = new FileListing();
+        list1.addFiles(files1);
+        
+        for(FileListing listing : listing.getTheList()){ }
+        System.out.println("========================================");
+        
+        
+        ArrayList tempfileEdit = FileFormatter.tempChange(sourceDir, tempRemove, tempReplace);
+        ArrayList tempFiles = new ArrayList();
+        for (Iterator it1 = tempfileEdit.iterator(); it1.hasNext();)
         {
-            String tempFile = (String) it.next();
-            System.out.println("<a href=\"/PDFfiles/" + tempFile + "\" />");
+            String tempFile = (String) it1.next();
+            tempFiles.add(tempFile);
+            System.out.println(tempFile);
         }
         
-        //File filenameEdit = FileFormatter.fileChange(sourceDir, remove, replace);
+        String remove = FileFormatter.editContents(null, 2);
+        String replace = FileFormatter.newContents(null, 2);
         
-        //System.out.println(filenameEdit);
+        ArrayList filenameEdit = FileFormatter.fileChange(sourceDir, remove, replace);
+        ArrayList permFiles = new ArrayList();
+        for (Iterator it2 = filenameEdit.iterator(); it2.hasNext();)
+        {
+            String renamedFile = (String) it2.next();
+            permFiles.add(renamedFile);
+            System.out.println("<a href=\"/PDFfiles/" + renamedFile  + "\" />" );
+        }
+        
+        //Iterator it1 = tempfileEdit.iterator();
+        //Iterator it2 = filenameEdit.iterator();
+//        while(tempFiles.iterator().hasNext() && permFiles.iterator().hasNext()){
+//            System.out.println("<p>&nbsp;+&nbsp;<a href=\"PDFfiles/" + permFiles + "\" target=\"_blank\">" + tempFiles + "</a></p>" );
+//        }
+        System.out.println("<p>&nbsp;+&nbsp;<a href=\"PDFfiles/" + permFiles + "\" target=\"_blank\">" + tempFiles + "</a></p>" );
+        
     }
     
     
     
+    }
         
     
     
