@@ -18,6 +18,7 @@ public class FileDirectory {
         System.out.print("Enter the directory you want to read: ");
         String directorySelection = scanner.nextLine();
         
+        System.out.println(directorySelection);
         return directorySelection;
     }
 }

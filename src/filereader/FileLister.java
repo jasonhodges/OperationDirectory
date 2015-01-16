@@ -20,15 +20,15 @@ import java.util.List;
  * @author jason.hodges
  */
 public class FileLister {
-
-    public static void main(String sourceDir) {
+    public static List<Path> fileList = new LinkedList<>();
+    public static List getFiles(String sourceDir) {
+        //List<Path> files = new LinkedList<>();
         Path dir = Paths.get(sourceDir);
-        //List<String> list = new LinkedList<>();
-        //File dirList[] = sourceDir.listFiles();
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir))
             {
                 for (Path file: stream) 
                 {
+                    fileList.add(file.getFileName());
                     System.out.println(file.getFileName());
                 }
             }   catch (IOException | DirectoryIteratorException x) 
@@ -37,6 +37,9 @@ public class FileLister {
                     // In this snippet, it can only be thrown by newDirectoryStream.
                     System.err.println(x);
                 }
+            
+            return fileList;
+            
     }
     
 }
