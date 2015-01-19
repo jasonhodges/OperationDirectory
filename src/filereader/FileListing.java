@@ -14,25 +14,16 @@ import java.util.List;
  *
  * @author jason.hodges
  */
-public class FileListing {
-   //List<FileListing> fileslist = new ArrayList<>();
+public class FileListing{
     
-    List<TheFiles> theFiles = new ArrayList<>();
+    public List<FileListing> theList = new ArrayList<>();
     
-    //List<FileListing> theList = new ArrayList<>();
-    
-    public void addFiles(TheFiles f){
-        theFiles.add(f);
+    public void addFiles(FileListing f){
+        theList.add(f);
     }
-//    public void addTheList(FileListing l){
-//        theList.add(l);
-//    }
     
-//    public List<FileListing> getTheList()
-//    {
-//        return theList;
-//    }
-    
-    
-    
+    public List<FileListing> getTheList()
+    {
+        return theList;
+    }
 }

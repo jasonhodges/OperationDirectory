@@ -41,26 +41,22 @@ public abstract class FileReader {
         String tempRemove = FileFormatter.editContents(null, 1);
         String tempReplace = FileFormatter.newContents(null, 1);
         
-        List<FileListing> theList = new ArrayList<>();
         
-        TheFiles files1 = new TheFiles();
-        files1.theFiles = FileFormatter.tempChange(sourceDir, tempRemove, tempReplace);
-        
-        FileListing list1 = new FileListing();
-        list1.addFiles(files1);
-        
-        for(FileListing listing : listing.getTheList()){ }
+        TheFiles files1;   
+        files1 = new TheFiles();
+        files1.addTheFiles(FileFormatter.tempChange(sourceDir, tempRemove, tempReplace));
+        System.out.println(files1);
         System.out.println("========================================");
         
         
-        ArrayList tempfileEdit = FileFormatter.tempChange(sourceDir, tempRemove, tempReplace);
-        ArrayList tempFiles = new ArrayList();
-        for (Iterator it1 = tempfileEdit.iterator(); it1.hasNext();)
-        {
-            String tempFile = (String) it1.next();
-            tempFiles.add(tempFile);
-            System.out.println(tempFile);
-        }
+        //ArrayList tempfileEdit = FileFormatter.tempChange(sourceDir, tempRemove, tempReplace);
+        //ArrayList tempFiles = new ArrayList();
+//        for (Iterator it1 = files1.iterator(); it1.hasNext();)
+//        {
+//            String tempFile = (String) it1.next();
+//            tempFiles.add(tempFile);
+//            System.out.println(tempFile);
+//        }
         
         String remove = FileFormatter.editContents(null, 2);
         String replace = FileFormatter.newContents(null, 2);

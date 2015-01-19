@@ -21,7 +21,6 @@ import java.util.List;
 public class FileLister {
     public static List<Path> fileList = new LinkedList<>();
     public static List getFiles(String sourceDir) {
-        //List<Path> files = new LinkedList<>();
         Path dir = Paths.get(sourceDir);
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir))
             {
