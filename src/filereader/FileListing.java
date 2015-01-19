@@ -5,8 +5,6 @@
  */
 package filereader;
 
-import java.io.File;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,15 +13,22 @@ import java.util.List;
  * @author jason.hodges
  */
 public class FileListing{
+    // each filelisting has a list of files
+    public ArrayList theList;
     
-    public List<FileListing> theList = new ArrayList<>();
-    
-    public void addFiles(FileListing f){
+    public FileListing(ArrayList list){
+        this.theList = list;
+    }
+
+    public void addList(ArrayList f){
         theList.add(f);
     }
     
-    public List<FileListing> getTheList()
-    {
+    public List<FileListing> getTheList(FileListing list){
         return theList;
+    }
+
+    void addAll(ArrayList tempChange) {
+        theList.add(tempChange);
     }
 }

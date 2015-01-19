@@ -24,15 +24,17 @@ public class FileLister {
         Path dir = Paths.get(sourceDir);
             try (DirectoryStream<Path> stream = Files.newDirectoryStream(dir))
             {
-                System.out.println("******************************");
+                System.out.println("========================================");
+                System.out.println("****************************************");
                 System.out.println("Current Files");
+                System.out.println("_____________");
                 for (Path file: stream) 
                 {
                     fileList.add(file.getFileName());
                     
                     System.out.println(file.getFileName());
                 }
-                System.out.println("******************************");
+                System.out.println("****************************************");
             }   catch (IOException | DirectoryIteratorException x) 
                 {
                     // IOException can never be thrown by the iteration.

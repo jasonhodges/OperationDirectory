@@ -98,3 +98,13 @@
 //            System.err.println(x);
 //        }
 //}
+
+
+public static String yoFile(String yoFileName) throws IOException
+    {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Name for new file: ");
+        String fileName = scanner.nextLine();
+       
+        return fileName;
+    }

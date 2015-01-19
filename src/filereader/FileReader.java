@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package filereader;
 
 import java.io.File;
@@ -24,74 +19,55 @@ public abstract class FileReader {
      */
     private static String sourceDir = null;
     private static List<Path> sourceFiles = null;
-    
-//    public FileReader(FileReader fr){
-//        this(FileReader.sourceDir);
-//    }
+
     public FileReader(String sourceDir){
         FileReader.sourceDir = sourceDir;
     }
     public static void main(String[] args) throws IOException{
-        Scanner s = new Scanner(System.in);
         
         sourceDir = FileDirectory.getDirectory(null);
         sourceFiles = FileLister.getFiles(sourceDir);
         
+        /*
+        TODO make multi-pass for multi-format of filename
+        (eg. remove underscores & remove file extension)
+        */
+        String tempRemove = FileFormatter.editContents(null, 1);    // get part of filename to tempRemove 
+        String tempReplace = FileFormatter.newContents(null, 1);    // get part of filename to tempReplace
         
-        String tempRemove = FileFormatter.editContents(null, 1);
-        String tempReplace = FileFormatter.newContents(null, 1);
+        ArrayList<String> tempfileEdit = FileFormatter.tempChange(sourceDir, tempRemove, tempReplace);
         
+        FileListing list1 = new FileListing(tempfileEdit);
         
-        TheFiles files1;   
-        files1 = new TheFiles();
-        files1.addTheFiles(FileFormatter.tempChange(sourceDir, tempRemove, tempReplace));
-        System.out.println(files1);
+        ArrayList tempFiles = new ArrayList();
+        
+        for (Iterator it1 = list1.theList.iterator(); it1.hasNext();)
+        {
+            String tempFile = (String) it1.next();
+            tempFiles.add(tempFile);
+            System.out.println(tempFile);
+        }
         System.out.println("========================================");
-        
-        
-        //ArrayList tempfileEdit = FileFormatter.tempChange(sourceDir, tempRemove, tempReplace);
-        //ArrayList tempFiles = new ArrayList();
-//        for (Iterator it1 = files1.iterator(); it1.hasNext();)
-//        {
-//            String tempFile = (String) it1.next();
-//            tempFiles.add(tempFile);
-//            System.out.println(tempFile);
-//        }
         
         String remove = FileFormatter.editContents(null, 2);
         String replace = FileFormatter.newContents(null, 2);
         
         ArrayList filenameEdit = FileFormatter.fileChange(sourceDir, remove, replace);
+        
         ArrayList permFiles = new ArrayList();
+        
         for (Iterator it2 = filenameEdit.iterator(); it2.hasNext();)
         {
             String renamedFile = (String) it2.next();
             permFiles.add(renamedFile);
-            System.out.println("<a href=\"/PDFfiles/" + renamedFile  + "\" />" );
+//            System.out.println("<a href=\"/PDFfiles/" + renamedFile  + "\" />" );
         }
         
-        //Iterator it1 = tempfileEdit.iterator();
-        //Iterator it2 = filenameEdit.iterator();
-//        while(tempFiles.iterator().hasNext() && permFiles.iterator().hasNext()){
-//            System.out.println("<p>&nbsp;+&nbsp;<a href=\"PDFfiles/" + permFiles + "\" target=\"_blank\">" + tempFiles + "</a></p>" );
-//        }
-        System.out.println("<p>&nbsp;+&nbsp;<a href=\"PDFfiles/" + permFiles + "\" target=\"_blank\">" + tempFiles + "</a></p>" );
-        
+        //Iterator it1 = tempFiles.iterator();
+        //Iterator it2 = permFiles.iterator();
+        for(int i = 0; i < tempFiles.size() && i < permFiles.size(); i++){
+            System.out.println("<p>&nbsp;+&nbsp;<a href=\"PDFfiles/RxPriorAuth/" + permFiles.get(i) + "\" target=\"_blank\">" + tempFiles.get(i) + "</a></p>" );
+        }
     }
-    
-    
-    
-    }
-        
-    
-    
-    public static String yoFile(String yoFileName) throws IOException
-    {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Name for new file: ");
-        String fileName = scanner.nextLine();
-       
-        return fileName;
-    }
-}  
+} 
 

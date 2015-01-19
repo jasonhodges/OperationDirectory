@@ -3,9 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/src/FileReader/src/filereader/FileLister.java</file>
+            <file>file:/C:/src/FileReader/src/filereader/FileListing.java</file>
             <file>file:/C:/src/FileReader/src/filereader/FileDirectory.java</file>
             <file>file:/C:/src/FileReader/src/filereader/FileFormatter.java</file>
+            <file>file:/C:/src/FileReader/src/filereader/TheFiles.java</file>
             <file>file:/C:/src/FileReader/src/filereader/FileReader.java</file>
         </group>
     </open-files>
