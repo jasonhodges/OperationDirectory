@@ -66,7 +66,7 @@ public abstract class FileReader {
         //Iterator it1 = tempFiles.iterator();
         //Iterator it2 = permFiles.iterator();
         for(int i = 0; i < tempFiles.size() && i < permFiles.size(); i++){
-            System.out.println("<p>&nbsp;+&nbsp;<a href=\"PDFfiles/RxPriorAuth/" + permFiles.get(i) + "\" target=\"_blank\">" + tempFiles.get(i) + "</a></p>" );
+            System.out.println("<a href=\"/files/" + permFiles.get(i) + "\" target=\"_blank\">");
         }
     }
 } 
