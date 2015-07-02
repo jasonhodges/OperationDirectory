@@ -19,7 +19,22 @@ public abstract class FileReader {
      */
     private static String sourceDir = null;
     private static List<Path> sourceFiles = null;
-
+    public static String right(String input, int len) {
+        return input.substring(0, input.length() - len);
+    }
+    public static String docType(String input, int len){
+        if(null != input.substring(input.length()-len))switch (input.substring(input.length()-len)) {
+            case "SBC":
+                return "Summary of Benefits and Coverages";
+            case "SPD":
+                return "Certificate of Coverage";
+            case "HLS":
+                return "Highlight Sheet";
+            case "WRP":
+                return "Cobra Wrap";
+        }
+        return null;
+    }
     public FileReader(String sourceDir){
         FileReader.sourceDir = sourceDir;
     }
@@ -65,9 +80,18 @@ public abstract class FileReader {
         
         //Iterator it1 = tempFiles.iterator();
         //Iterator it2 = permFiles.iterator();
+        
+        
+        
         for(int i = 0; i < tempFiles.size() && i < permFiles.size(); i++){
-            System.out.println("<a href=\"/files/" + permFiles.get(i) + "\" target=\"_blank\">");
+            System.out.println("Member Resources" + "," + docType((String)tempFiles.get(i),3) + "," + "Marketplace/" + permFiles.get(i) + "," + "PDF" + "," + right((String)tempFiles.get(i),3) + "," + "5/1/2015");
+//            System.out.println(" ");
+//            System.out.println("PDF");
+//            System.out.print(" ");
+//            System.out.print(right((String)tempFiles.get(i),3));
+//            System.out.print("5/1/2015"); 
         }
+        
     }
 } 
 
